@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Document</title>
+
+</head>
+<body>
+    <div class='listdiv'>
+        
+        <h1 class="rellax" style="margin-bottom:20px;">List of Utilities</h1>
+        <div class="temperature titlediv "data-rellax-speed="2.5">
+            <h1>Temperature Conversion</h1>
+            <h4>Convert from Celsius, Fahrenheit, Kelvin etc</h4>
+            <br>
+            <a href="temp.html" class="list">Transport me!</a>
+        </div>
+        <div class="Distance titlediv">
+            <h1>Distance Conversion</h1>
+            <h4>Convert from Meter, Centimeter, Feet etc</h4>
+            <br>
+            <a href="distance.html" class="list">Transport me!</a>
+        </div>
+        <div class="bmi titlediv ">
+            <h1>BMI Calculator</h1>
+            <h4>Calculate your Body-Mass index</h4>
+            <br>
+            <a href="bmi.html" class="list">Transport me!</a>
+        </div>
+        <div class="weight titlediv ">
+            <h1>Weight Conversion</h1>
+            <h4>Convert from newton, gram, pound etc</h4>
+            <br>
+            <a href="weight.html" class="list">Transport me!</a>
+        </div>
+        <div class="calculator titlediv ">
+            <h1>Calculator</h1>
+            <h4>Calculate expressions</h4>
+            <br>
+            <a href="calc.html" class="list">Transport me!</a>
+        </div>
+            
+        
+        
+    </div>
+    <style>
+        body{
+            background: linear-gradient(90deg, rgba(138, 0, 138, 0.3) 0%, rgba(172, 0, 72, 0.3) 100%);
+            padding-top:5%;
+            padding-bottom:5%;
+        }
+        .bmidiv{
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            flex-direction: row;
+            gap:10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js" integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var rellax = new Rellax(".rellax", {
+             speed:2
+
+        });
+    </script>
+    
+</body>
+</html>

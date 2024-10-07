@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Document</title>
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>Temperature Conversion</h1>
+            <h4>Convert from Celsius, Fahrenheit, Kelvin etc</h4>
+        </div>
+        <div class="buttonsdiv">
+            <input type="text" class="inputtext" placeholder="enter temperature">
+            <select class="input">
+                <option value="0">Celsius</option>
+                <option value="1">Fahrenheit</option>
+                <option value="2">Kelvin</option>
+                <option value="3">Rankine</option>
+            </select>
+            <p>=</p>
+            <input type="text" disabled class="answer">
+            <select class="output">
+                <option value="0">Celsius</option>
+                <option value="1">Fahrenheit</option>
+                <option value="2">Kelvin</option>
+                <option value="3">Rankine</option>
+            </select>
+            <br>
+            <button class="convert">Convert</button>
+        </div>
+    </div>
+    <script>
+        let query = function(x) {
+            return document.querySelector(x);
+        }
+
+        document.querySelector('button').addEventListener("click", () => {
+            let userInput = parseFloat(query('.inputtext').value);
+            let inputUnit = query('.input').value;
+            let outputUnit = query('.output').value;
+            let answer;
+
+            if (inputUnit == 0) {
+                if (outputUnit == 0) { 
+                    answer = userInput;
+                }
+                if (outputUnit == 1) {  
+                    answer = (userInput * 9/5) + 32;
+                }
+                if (outputUnit == 2) {  
+                    answer = userInput + 273.15;
+                }
+                if (outputUnit == 3) {  
+                    answer = (userInput + 273.15) * 9/5;
+                }
+            }
+            if (inputUnit == 1) {  
+                if (outputUnit == 0) { 
+                    answer = (userInput - 32) * 5/9;
+                }
+                if (outputUnit == 1) { 
+                    answer = userInput;
+                }
+                if (outputUnit == 2) { 
+                    answer = (userInput - 32) * 5/9 + 273.15;
+                }
+                if (outputUnit == 3) {  
+                    answer = userInput + 459.67;
+                }
+            }
+            if (inputUnit == 2) {   
+                if (outputUnit == 0) { 
+                    answer = userInput - 273.15;
+                }
+                if (outputUnit == 1) {  
+                    answer = (userInput - 273.15) * 9/5 + 32;
+                }
+                if (outputUnit == 2) { 
+                    answer = userInput;
+                }
+                if (outputUnit == 3) { 
+                    answer = userInput * 9/5;
+                }
+            }
+            if (inputUnit == 3) {
+                if (outputUnit == 0) {
+                    answer = (userInput - 491.67) * 5/9;
+                }
+                if (outputUnit == 1) { 
+                    answer = userInput - 459.67;
+                }
+                if (outputUnit == 2) { 
+                    answer = userInput * 5/9;
+                }
+                if (outputUnit == 3) {
+                    answer = userInput;
+                }
+            }
+
+            query('.answer').value = answer.toFixed(2);
+        });
+    </script>
+</body>
+</html>

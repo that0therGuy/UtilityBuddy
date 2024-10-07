@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Distance Conversion</title>
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>Distance Conversion</h1>
+            <h4>Convert from Meter, Kilometer, Feet, Inch, Mile etc</h4>
+        </div>
+        <div class="buttonsdiv">
+            <input type="text" class="inputtext" placeholder="Enter distance">
+            <select class="input">
+                <option value="0">Meter</option>
+                <option value="1">Kilometer</option>
+                <option value="2">Feet</option>
+                <option value="3">Inch</option>
+                <option value="4">Mile</option>
+            </select>
+            <p>=</p>
+            <input type="text" disabled class="answer">
+            <select class="output">
+                <option value="0">Meter</option>
+                <option value="1">Kilometer</option>
+                <option value="2">Feet</option>
+                <option value="3">Inch</option>
+                <option value="4">Mile</option>
+            </select>
+            <br>
+            <button class="convert">Convert</button>
+        </div>
+    </div>
+    <script>
+        let query = function(x) {
+            return document.querySelector(x);
+        }
+
+        document.querySelector('button').addEventListener("click", () => {
+            let userInput = parseFloat(query('.inputtext').value);
+            let inputUnit = query('.input').value;
+            let outputUnit = query('.output').value;
+            let answer;
+
+            // Conversion factors
+            const metersToKilometers = 0.001;
+            const metersToFeet = 3.28084;
+            const metersToInches = 39.3701;
+            const metersToMiles = 0.000621371;
+
+            // Convert input to meters
+            let inputInMeters;
+            if (inputUnit == 0) { // Meter
+                inputInMeters = userInput;
+            } else if (inputUnit == 1) { // Kilometer
+                inputInMeters = userInput / metersToKilometers;
+            } else if (inputUnit == 2) { // Feet
+                inputInMeters = userInput / metersToFeet;
+            } else if (inputUnit == 3) { // Inch
+                inputInMeters = userInput / metersToInches;
+            } else if (inputUnit == 4) { // Mile
+                inputInMeters = userInput / metersToMiles;
+            }
+
+            // Convert meters to output unit
+            if (outputUnit == 0) { // Meter
+                answer = inputInMeters;
+            } else if (outputUnit == 1) { // Kilometer
+                answer = inputInMeters * metersToKilometers;
+            } else if (outputUnit == 2) { // Feet
+                answer = inputInMeters * metersToFeet;
+            } else if (outputUnit == 3) { // Inch
+                answer = inputInMeters * metersToInches;
+            } else if (outputUnit == 4) { // Mile
+                answer = inputInMeters * metersToMiles;
+            }
+
+            query('.answer').value = answer.toFixed(4); // Display the answer, fixed to four decimal places
+        });
+    </script>
+</body>
+</html>
