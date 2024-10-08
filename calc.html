@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Document</title>
+
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>Calculator</h1>
+            <h4>Evaluate your expressions</h4>
+        </div>
+        
+        
+            
+        <div >
+            
+                
+            
+            <input type="text" class="field" placeholder="3+sqrt(2)/sqrt(1.5)">
+            <p class="answer"></p>
+        </div>
+        <p>Reference:</p>
+                <p>Use sin(x) ,cos(x) ,tan(x) ,log(x), 
+                pi, phi, G (gravitational constant) and h (plank's constant) for more flexibility and use operators such as
+                '<', '>', '%' and '==' for comparing quantities.</p>
+        
+         
+    </div>
+   
+    <script>
+
+setInterval(answer,100)
+function answer(){
+    let input=document.querySelector('.field').value;
+    input=input.replace(/pi/gi,Math.PI)
+    
+    input=input.replace(/phi/gi,(Math.sqrt(5)+1)/2)
+    input=input.replace(/G/,0.00000000006674)
+    input=input.replace(/h/gi,6.6262e-34)
+   
+    input = input.replace(/sqrt\(([^)]+)\)/gi, 'Math.sqrt($1)');
+    input = input.replace(/sin\(([^)]+)\)/gi, 'Math.sin($1)'); 
+    input = input.replace(/tan\(([^)]+)\)/gi, 'Math.tan($1)'); 
+    input = input.replace(/cos\(([^)]+)\)/gi, 'Math.cos($1)'); 
+    input = input.replace(/log\(([^)]+)\)/gi, 'Math.log($1)');
+    
+    document.querySelector('.answer').innerText='='+eval(input);
+    if (document.querySelector('.answer').innerText=='=undefined'){
+        document.querySelector('.answer').style.opacity='0';
+        document.querySelector('.answer').style.display='none';     
+        
+    }else{
+        document.querySelector('.answer').style.opacity='1';
+        document.querySelector('.answer').style.display='inline-block';     
+    }
+}
+    </script>
+    <style>
+        input{
+            margin:10px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .bmidiv{
+                width:300px;
+            }
+            p{
+                font-size:13px;
+            }
+            .answer{
+                font-size:16px;
+            }
+        }
+
+        p{
+            margin-right:30px;
+            margin-left:30px;
+        }
+        .answer{
+            margin:0;
+        }
+    </style>
+</body>
+</html>
