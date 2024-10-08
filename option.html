@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Document</title>
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>Options Picker</h1>
+            <h4>Leave the choice to Fate</h4>
+        </div>
+        
+        <input class="input" placeholder='Enter your options separated by (,)'>
+        <button class="choose">Choose</button>
+        <p class="result"></p> 
+    </div>
+   
+    <script>
+        document.querySelector('.choose').addEventListener('click', function() {
+            const input = document.querySelector('.input').value;
+            const options = input.split(',').map(option => option.trim());
+            
+            if (options.length > 0 && options[0] !== "") {
+                const randomIndex = Math.floor(Math.random() * options.length);
+                const chosenOption = options[randomIndex];
+                document.querySelector('.result').textContent = `Fate's Choice: ${chosenOption}`;
+            } else {
+                document.querySelector('.result').textContent = "(Enter options)";
+            }
+        });
+    </script>
+
+    <style>
+        input {
+            margin-top: 10px;
+            padding:5px;
+        }
+        p{
+            background: linear-gradient(90deg, rgba(127, 0, 185, 0.7) 0%, rgba(202, 0, 84, 0.7) 100%);
+            background-clip:text;
+        }
+
+    </style>
+</body>
+</html>
