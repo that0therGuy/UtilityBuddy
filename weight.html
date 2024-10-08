@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Weight Conversion</title>
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>Weight Conversion</h1>
+            <h4>Convert from newton, gram, kilogram, pound, etc.</h4>
+        </div>
+        <div class="buttonsdiv">
+            <input type="text" class="inputtext" placeholder="enter weight">
+            <select class="input">
+                <option value="0">Newton</option>
+                <option value="1">Gram</option>
+                <option value="2">Kilogram</option>
+                <option value="3">Pound</option>
+            </select>
+            <p>=</p>
+            <input type="text" disabled class="answer">
+            <select class="output">
+                <option value="0">Newton</option>
+                <option value="1">Gram</option>
+                <option value="2">Kilogram</option>
+                <option value="3">Pound</option>
+            </select>
+            <br>
+            <button class="convert">Convert</button>
+            
+            <p>*Measurements for Earth only</p>
+        </div>
+    </div>
+    <script>
+        let query = function(x) {
+            return document.querySelector(x);
+        }
+
+        document.querySelector('button').addEventListener("click", () => {
+            let userInput = parseFloat(query('.inputtext').value);
+            let inputUnit = query('.input').value;
+            let outputUnit = query('.output').value;
+            let answer;
+
+            
+            const newtonToGram = 101.971621; 
+            const gramToNewton = 0.00980665;
+            const kilogramToGram = 1000; 
+            const poundToGram = 453.592; 
+
+           
+            let inputInGrams;
+            if (inputUnit == 0) {
+                inputInGrams = userInput * newtonToGram;
+            } else if (inputUnit == 1) {
+                inputInGrams = userInput;
+            } else if (inputUnit == 2) { 
+                inputInGrams = userInput * kilogramToGram;
+            } else if (inputUnit == 3) { 
+                inputInGrams = userInput * poundToGram;
+            }
+
+            
+            if (outputUnit == 0) {
+                answer = inputInGrams * gramToNewton;
+            } else if (outputUnit == 1) {
+                answer = inputInGrams;
+            } else if (outputUnit == 2) { 
+                answer = inputInGrams / kilogramToGram;
+            } else if (outputUnit == 3) {
+                answer = inputInGrams / poundToGram;
+            }
+
+            query('.answer').value = answer.toFixed(2);
+        });
+    </script>
+</body>
+</html>

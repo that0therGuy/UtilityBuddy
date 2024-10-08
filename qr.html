@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Circles</title>
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>QR Code Generator</h1>
+            <h4>Convert your link into a QR code</h4>
+        </div>
+        <div class="buttonsdiv">
+            <input type="text" class="inputtext" placeholder="utilitybuddy.netlify.app">
+            
+            <button class="convert">Generate</button><br><br>
+            <img class="img">
+        </div>
+    </div>
+    <style>
+        img{
+            border-radius:10px;
+        }
+    </style>
+    <script>
+        let query = function(x) {
+            return document.querySelector(x);
+        }
+        let meme = function(e){
+            
+      
+      
+            fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${e}`)
+              
+              
+              .then(item => {document.querySelector(".img").setAttribute("src", item.url);})
+              .catch((error) => console.error('Error fetching data:', error));
+      
+            
+      
+        }
+          
+        document.querySelector('button').addEventListener("click",()=>{
+            meme(document.querySelector('input').value)
+        })
+
+        
+    </script>
+</body>
+</html>

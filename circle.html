@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Circles</title>
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>Circle</h1>
+            <h4>Convert from and to Degrees and Radians</h4>
+        </div>
+        <div class="buttonsdiv">
+            <input type="text" class="inputtext" placeholder="Enter Measurments">
+            <select class="input">
+                <option value="0">Degrees</option>
+                <option value="1">Radians</option>
+            </select>
+            <p>=</p>
+            <input type="text" disabled class="answer">
+            <select class="output">
+                <option value="0">Degrees</option>
+                <option value="1">Radians</option>
+            </select>
+            <br>
+            <button class="convert">Convert</button>
+        </div>
+    </div>
+    <script>
+        let query = function(x) {
+            return document.querySelector(x);
+        }
+
+        document.querySelector('button').addEventListener("click", () => {
+            let userInput = parseFloat(query('.inputtext').value);
+            let inputUnit = query('.input').value;
+            let outputUnit = query('.output').value;
+            let answer;
+
+            if (inputUnit == 0 && outputUnit == 1) {
+                answer = userInput * (Math.PI / 180);
+            } else if (inputUnit == 1 && outputUnit == 0) {
+                answer = userInput * (180 / Math.PI);
+            } else {
+                answer = userInput;
+            }
+
+            query('.answer').value = answer.toFixed(6);
+        });
+    </script>
+</body>
+</html>

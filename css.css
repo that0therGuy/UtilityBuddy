@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*,select option{
+    text-align:center;
+    font-family:"Poppins";
+    font-weight: 600;
+    margin:0px;
+    
+}
+body{
+    background: linear-gradient(90deg, rgba(138, 0, 138, 0.3) 0%, rgba(172, 0, 72, 0.3) 100%);
+
+}
+
+
+.bigdiv{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100svh;
+    flex-direction: column;
+    gap:10px;
+    
+}
+
+.listdiv{
+    display:flex;
+    justify-content:start;
+    align-items:center;
+    
+    flex-direction: column;
+    gap:10px;
+    
+}
+.bmidiv{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: row;
+    gap:10px;
+}
+input{
+    background:linear-gradient(90deg, rgba(39,0,47,.2) 0%, rgb(88, 0, 53,.2) 100%);
+    border:none;
+    margin:4px;
+    border-radius:5.4px;
+    color:rgba(115,0,67,.6);
+}
+input::after{
+    outline:none;
+}
+select,option{
+    border-radius:4.2px;
+    border:none;
+    background:linear-gradient(90deg, rgba(39,0,47,.2) 0%, rgb(88, 0, 53,.2) 100%);
+    color:rgba(115,0,67,.6);
+}
+option{
+    color:rgba(115,0,67,.6);
+    font-family:"Poppins";
+}
+
+.titlediv{
+    background: linear-gradient(90deg, rgba(100,0,120,.3) 0%, rgba(115,0,67,.3) 100%);
+    padding:30px;
+    border-radius:5.6px;
+    width:500px;
+    box-shadow: 0 0 30px rgb(119, 0, 50,.2);
+    
+}
+input,select{
+    box-shadow: 0 0 10px rgb(119, 0, 50,.1);
+}
+
+.referencediv{
+    background: linear-gradient(90deg, rgba(100,0,120,.3) 0%, rgba(115,0,67,.3) 100%);
+    padding:30px;
+    border-radius:5.6px;
+    opacity:0.8;
+    
+}
+h1,h4,p{
+    font-size:auto;
+    color:transparent;
+    background: linear-gradient(90deg, rgba(39,0,47,.7) 0%, rgb(88, 0, 53,.7) 100%);
+    background-clip:text;
+}
+a,button{
+    text-decoration:none;
+    color:transparent;
+    background: linear-gradient(90deg, rgba(81, 0, 97, 0.7) 0%, rgba(136, 0, 82, 0.7) 100%);
+    background-clip:text;
+    padding:1px;
+    border:1px solid rgba(100,0,120,.3);
+    padding:5px;
+    border-radius:5.3px;
+    transition:all .4s;
+}
+button{
+    margin:8px;
+}
+input,select{
+    padding:2px;
+    transition:all .2s;
+
+}
+input:hover,button:hover,a:hover,select:hover{
+    transform:translateY(-2px);
+}
+a:hover,button:hover{
+    box-shadow:1px 1px 20px rgb(88, 0, 53,.2);
+    filter:brightness(30%);
+    
+}
+@media screen and (max-width: 600px) {
+    .titlediv{
+        width:300px;
+    }
+    .bmidiv{
+        flex-direction: column;
+    }
+    h1{
+        font-size:22px;
+    }
+    h4{
+        font-size:12px;
+    }
+    .a{
+        font-size:12px;
+    }
+
+}
