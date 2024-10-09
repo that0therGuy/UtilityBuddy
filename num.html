@@ -15,7 +15,8 @@
         <div class="buttonsdiv">
             <input type="text" class="inputtext" placeholder="1"> <p style="display:inline-block;">to</p>
             <input type="text" class="outtext" placeholder="100">
-            
+            <br>
+            <input type="text" class="much" style='width:auto;'placeholder="how many numbers?">
             <br>
             <button class="convert">Generate</button><br><br>
             <p class="out">
@@ -37,20 +38,26 @@
         
     
         query('button').addEventListener('click', () => {
-            
             let minValue = parseInt(query('.inputtext').value);
             let maxValue = parseInt(query('.outtext').value);
-    
-            
+            let output = '';
+        
             if (!isNaN(minValue) && !isNaN(maxValue)) {
+                for (let x = 0; x < query('.much').value; x++) {
+                    let randomIntInRange = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+                    output += randomIntInRange + ', ';
+                }
                 
-                let randomIntInRange = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
                 
-                query('.out').innerText = randomIntInRange;
+                output = output.substring(0, output.length - 2);
+                
+                
+                query('.out').innerText = output;
             } else {
                 query('.out').innerText = "(Enter numbers)";
             }
         });
+        
     </script>
     
 </body>
