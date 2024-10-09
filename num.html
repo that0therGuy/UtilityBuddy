@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Random number</title>
+</head>
+<body>
+    <div class='bigdiv'>
+        <div class="titlediv">
+            <h1>Number Generator</h1>
+            <h4>Generate a number between two values</h4>
+        </div>
+        <div class="buttonsdiv">
+            <input type="text" class="inputtext" placeholder="1"> <p style="display:inline-block;">to</p>
+            <input type="text" class="outtext" placeholder="100">
+            
+            <br>
+            <button class="convert">Generate</button><br><br>
+            <p class="out">
+        </div>
+    </div>
+    <style>
+        input{
+            width:110px;
+        }
+        p{
+            font-size:18px;
+            margin:0;
+        }
+    </style>
+    <script>
+        let query = function(x) {
+            return document.querySelector(x);
+        }
+        
+    
+        query('button').addEventListener('click', () => {
+            
+            let minValue = parseInt(query('.inputtext').value);
+            let maxValue = parseInt(query('.outtext').value);
+    
+            
+            if (!isNaN(minValue) && !isNaN(maxValue)) {
+                
+                let randomIntInRange = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+                
+                query('.out').innerText = randomIntInRange;
+            } else {
+                query('.out').innerText = "(Enter numbers)";
+            }
+        });
+    </script>
+    
+</body>
+</html>
