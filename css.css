@@ -116,7 +116,7 @@ a:hover,button:hover{
 }
 @media screen and (max-width: 600px) {
     .titlediv{
-        width:300px;
+        width:330px;
     }
     .bmidiv{
         flex-direction: column;
