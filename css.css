@@ -67,7 +67,7 @@ option{
     padding:30px;
     border-radius:5.6px;
     width:500px;
-    box-shadow: 0 0 30px rgb(119, 0, 50,.2);
+    box-shadow: 0 0 30px rgba(126, 46, 119, 0.4);
     
 }
 input,select{
@@ -116,7 +116,7 @@ a:hover,button:hover{
 }
 @media screen and (max-width: 600px) {
     .titlediv{
-        width:370px;
+        width:300px;
     }
     .bmidiv{
         flex-direction: column;
