@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css.css'>
+    <title>Password</title>
+</head>
+<body>
+<div class='bigdiv'>
+    <div class="titlediv">
+        <h1>Password Generator</h1>
+        <h4>Generate a password that fits best</h4>
+    </div>
+    <input type="text" class="length" placeholder="Password Length" >
+    <div><label>Lowercase</label><input type="checkbox" class="low" ></div>
+    <div><label>Uppercase</label><input type="checkbox"class="up" ></div>
+    <div><label>Numbers</label><input type="checkbox"class="num" ></div>
+    <div><label>Symbols</label><input type="checkbox" class="sym"></div>
+
+
+    <button class="choose">Generate</button>
+    <p class="result"></p>
+</div>
+
+<script>
+    let alphabets_l = 'qwertyuiopasdfghjklzxcvbnm';
+    let alphabets_u = 'QWERTYUIOPASDFGHJKLZXCVBNM';
+    let numbers = '1234567890';
+    let special = '@$_-.!%*';
+
+    document.querySelector('.choose').addEventListener('click', function() {
+        let x = [];
+        let charPool = '';
+
+        if (document.querySelector('.up').checked) {
+            x.push('up');
+            charPool += alphabets_u;
+        }
+        if (document.querySelector('.low').checked) {
+            x.push('low');
+            charPool += alphabets_l;
+        }
+        if (document.querySelector('.num').checked) {
+            x.push('num');
+            charPool += numbers;
+        }
+        if (document.querySelector('.sym').checked) {
+            x.push('sym');
+            charPool += special;
+        }
+
+        let passwordLength = parseInt(document.querySelector('.length').value);
+        if (!passwordLength || passwordLength < 1) {
+            document.querySelector('.result').textContent = 'wrong input';
+            return;
+        }
+
+        if (charPool.length === 0) {
+            document.querySelector('.result').textContent = 'no checked content!';
+            return;
+        }
+
+        let password = '';
+        for (let i = 0; i < passwordLength; i++) {
+            let randomIndex = Math.floor(Math.random() * charPool.length);
+            password += charPool[randomIndex];
+        }
+
+        document.querySelector('.result').textContent = password;
+
+
+
+
+    });
+</script>
+
+<style>
+    input {
+        margin-top: 10px;
+        padding:5px;
+    }
+    p{
+        background: linear-gradient(90deg, rgba(127, 0, 185, 0.7) 0%, rgba(202, 0, 84, 0.7) 100%);
+        background-clip:text;
+    }
+
+</style>
+</body>
+</html>
