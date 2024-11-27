@@ -59,7 +59,7 @@ function answer() {
  
     try {
         let result = eval(input);
-        document.querySelector('.answer').innerText = '=' + result.toFixed(5);
+        document.querySelector('.answer').innerText = '=' + result.toFixed(6);
         if (document.querySelector('.answer').innerText == '=undefined') {
             document.querySelector('.answer').style.opacity = '0';
             document.querySelector('.answer').style.display = 'none';
