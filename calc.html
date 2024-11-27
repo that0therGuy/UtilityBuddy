@@ -46,13 +46,13 @@ function answer() {
     input = input.replace(/sqrt\(([^)]+)\)/gi, 'Math.sqrt($1)');
 
     input = input.replace(/sin\(([^)]+)\)/gi, function(match, p1) {
-        return 'Math.sin(' + p1 + ' * (Math.PI / 180).toFixed(5))';
+        return 'Math.sin(' + p1 + ' * Math.PI / 180).toFixed(5)';
     });
     input = input.replace(/cos\(([^)]+)\)/gi, function(match, p1) {
-        return 'Math.cos(' + p1 + ' * (Math.PI / 180).toFixed(5))';
+        return 'Math.cos(' + p1 + ' * Math.PI / 180).toFixed(5)';
     });
     input = input.replace(/tan\(([^)]+)\)/gi, function(match, p1) {
-        return 'Math.tan(' + p1 + ' *( Math.PI / 180).toFixed(5))';
+        return 'Math.tan(' + p1 + ' * Math.PI / 180).toFixed(5)';
     });
 
     input = input.replace(/log\(([^)]+)\)/gi, 'Math.log($1)');
