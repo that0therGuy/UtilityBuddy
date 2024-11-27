@@ -42,10 +42,10 @@ function answer(){
     input=input.replace(/h/gi,6.6262e-34)
    
     input = input.replace(/sqrt\(([^)]+)\)/gi, 'Math.sqrt($1)');
-    input = input.replace(/sin\(([^)]+)\)/gi, 'Math.sin($1)* Math.PI / 180)'); 
-    input = input.replace(/tan\(([^)]+)\)/gi, 'Math.tan($1)* Math.PI / 180)'); 
-    input = input.replace(/cos\(([^)]+)\)/gi, 'Math.cos($1)* Math.PI / 180)'); 
-    input = input.replace(/log\(([^)]+)\)/gi, 'Math.log($1)');
+    input = input.replace(/sin\(([^)]+)\)/gi, 'Math.sin($1 *Math.PI / 180) '); 
+    input = input.replace(/tan\(([^)]+)\)/gi, 'Math.tan($1*Math.PI / 180) '); 
+    input = input.replace(/cos\(([^)]+)\)/gi, 'Math.cos($1*Math.PI / 180))'); 
+    input = input.replace(/log\(([^)]+)\)/gi, 'Math.log($1*Math.PI / 180)');
     
     document.querySelector('.answer').innerText='='+eval(input);
     if (document.querySelector('.answer').innerText=='=undefined'){
