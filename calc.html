@@ -32,31 +32,47 @@
    
     <script>
 
-setInterval(answer,100)
-function answer(){
-    let input=document.querySelector('.field').value;
-    input=input.replace(/pi/gi,Math.PI)
-    
-    input=input.replace(/phi/gi,(Math.sqrt(5)+1)/2)
-    input=input.replace(/G/,0.00000000006674)
-    input=input.replace(/h/gi,6.6262e-34)
-   
+setInterval(answer, 100);
+
+function answer() {
+    let input = document.querySelector('.field').value;
+
+    input = input.replace(/pi/gi, Math.PI);
+    input = input.replace(/phi/gi, (Math.sqrt(5) + 1) / 2);
+    input = input.replace(/G/, 0.00000000006674);
+    input = input.replace(/h/gi, 6.6262e-34);
+
+
     input = input.replace(/sqrt\(([^)]+)\)/gi, 'Math.sqrt($1)');
-    input = input.replace(/sin\(([^)]+)\)/gi, 'Math.sin($1 *Math.PI / 180) '); 
-    input = input.replace(/tan\(([^)]+)\)/gi, 'Math.tan($1*Math.PI / 180) '); 
-    input = input.replace(/cos\(([^)]+)\)/gi, 'Math.cos($1*Math.PI / 180)'); 
-    input = input.replace(/log\(([^)]+)\)/gi, 'Math.log($1*Math.PI / 180)');
-    
-    document.querySelector('.answer').innerText='='+eval(input);
-    if (document.querySelector('.answer').innerText=='=undefined'){
-        document.querySelector('.answer').style.opacity='0';
-        document.querySelector('.answer').style.display='none';     
-        
-    }else{
-        document.querySelector('.answer').style.opacity='1';
-        document.querySelector('.answer').style.display='inline-block';     
+
+    input = input.replace(/sin\(([^)]+)\)/gi, function(match, p1) {
+        return 'Math.sin(' + p1 + ' * (Math.PI / 180).toFixed(5))';
+    });
+    input = input.replace(/cos\(([^)]+)\)/gi, function(match, p1) {
+        return 'Math.cos(' + p1 + ' * (Math.PI / 180).toFixed(5))';
+    });
+    input = input.replace(/tan\(([^)]+)\)/gi, function(match, p1) {
+        return 'Math.tan(' + p1 + ' *( Math.PI / 180).toFixed(5))';
+    });
+
+    input = input.replace(/log\(([^)]+)\)/gi, 'Math.log($1)');
+
+ 
+    try {
+        let result = eval(input);
+        document.querySelector('.answer').innerText = '=' + result;
+        if (document.querySelector('.answer').innerText == '=undefined') {
+            document.querySelector('.answer').style.opacity = '0';
+            document.querySelector('.answer').style.display = 'none';
+        } else {
+            document.querySelector('.answer').style.opacity = '1';
+            document.querySelector('.answer').style.display = 'inline-block';
+        }
+    } catch (e) {
+        document.querySelector('.answer').innerText = 'Error: ' + e.message;
     }
 }
+
     </script>
     <style>
         input{
