@@ -69,7 +69,7 @@ function answer() {
             document.querySelector('.answer').style.display = 'inline-block';
         }
     } catch (e) {
-        document.querySelector('.answer').innerText = 'Error: ' + e.message;
+        throw(e)
     }
 }
 
